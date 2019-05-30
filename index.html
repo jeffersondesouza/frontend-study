@@ -4,7 +4,88 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
     <title>Materialize</title>
+
+    <style>
+      .box {
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+      }
+    </style>
   </head>
-  <body>Materialize</body>
+  <body>
+    <div class="navbar-fixed">
+      <nav class="nav-wrapper indigo">
+        <div class="container">
+          <a href="#" class="brand-logo">Site Title</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="" class="btn white indigo-text">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+    
+    <div class="container">
+      <div class="blue darken-3 yellow-text text-lighten-2">
+        Materialize
+      </div>
+      <div class="row">
+        <div class="col box blue z-depth-1">1</div>
+        <div class="col box blue z-depth-2">2</div>
+        <div class="col box blue z-depth-3">3</div>
+        <div class="col box blue z-depth-4">4</div>
+        <div class="col box blue z-depth-5">5</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 m3 l4 xl2 pink">1</div>
+      <div class="col s12 m3 l4 xl2 blue">2</div>
+      <div class="col pull-m1 s12 m3 l4 xl2 red">3</div>
+      <div class="col s12 m3 l4 xl2 green">4</div>
+      <div class="col s12 m3 l4 xl2 red">5</div>
+      <div class="col s12 m3 l4 xl2 blue">6</div>
+    </div>
+    <div class="row">
+      <div class="col s12 m3 l4 xl2 pink">1</div>
+      <div class="col s12 m3 l4 xl2 blue">2</div>
+      <div class="col s12 m3 l4 xl2 red">3</div>
+      <div class="col s12 m3 l4 xl2 green">4</div>
+      <div class="col s12 m3 l4 xl2 red">5</div>
+      <div class="col s12 m3 l4 xl2 blue">6</div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".sidenav").sidenav();
+      });
+    </script>
+  </body>
 </html>
