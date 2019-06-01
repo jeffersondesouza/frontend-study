@@ -1,180 +1,245 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
     <!--Import Google Icon Font-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-      media="none"
-      onload="if(media!='all')media='all'"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
     />
-
-    <title>Materialize</title>
-
+    <title>Photo Ninja</title>
     <style>
-      .box {
-        height: 100px;
-        width: 100px;
-        margin: 10px;
+      .header {
+        background: url(img/man.jpg);
+        background-size: cover;
+        background-position: center;
+        min-height: 1000px;
+      }
+      @media screen and (min-width: 670px) {
+        .header {
+          min-height: 500px;
+        }
+      }
+
+      .section {
+        padding-top: 4vw;
+        padding-bottom: 4vw;
       }
     </style>
   </head>
   <body>
-    <div class="navbar-fixed">
-      <nav class="nav-wrapper indigo">
+    <header class="header">
+      <nav class="nav-wrapper transparent">
         <div class="container">
-          <a href="#" class="brand-logo">Site Title</a>
-          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+          <a href="#" class="brand-logo">Photo Ninja</a>
+          <button
+            role="button"
+            data-target="mobile-menu"
+            class="sidenav-trigger btn transparent"
+          >
             <i class="material-icons">menu</i>
-          </a>
+          </button>
           <ul class="right hide-on-med-and-down">
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li>
-              <a href="" class="btn-floating indigo darken-4 z-depth-0">
-                <i class="material-icons">notifications</i>
-              </a>
-            </li>
-            <li><span class="badge white-text pink">5</span></li>
-            <li><a href="" class="btn white indigo-text">Login</a></li>
+            <li><a href="#">Photos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contantcs</a></li>
+          </ul>
+          <ul id="mobile-menu" class="sidenav grey lightrn-2">
+            <li><a href="#">Photos</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contantcs</a></li>
           </ul>
         </div>
       </nav>
-    </div>
+    </header>
 
-    <ul class="sidenav" id="mobile-links">
-      <li><a href="">Home</a></li>
-      <li><a href="">About</a></li>
-      <li><a href="">Contact</a></li>
-    </ul>
-
-    <div class="container">
-      <div class="blue darken-3 yellow-text text-lighten-2">
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
-          >Modal</a
-        >
-
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-          <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
-          </div>
-          <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat"
-              >Agree</a
-            >
-          </div>
+    <section class="container section" id="photos">
+      <div class="row">
+        <div class="col s12 l4">
+          <img
+            src="./img/portrait.jpg"
+            class="responsive-img materialboxed"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div class="col s12 l6 offset-l1">
+          <h2 class="indigo-text text-darken-4">Portrait</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+            ratione eum fuga reiciendis harum fuga reiciendis harum ratione eum
+            fuga reiciendis harum
+          </p>
         </div>
       </div>
       <div class="row">
-        <div class="col s12">
-          <ul class="collection collection-with-header">
-            <li class="collection-header">Collection</li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle blue">person</i>
-              <span class="content">Item</span>
-              <div class="grey-text">Black belt</div>
-              <a href="" class="secondary-content">
-                <i class="material-icons blue-text">email</i>
-              </a>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle blue">person</i>
-              <span class="content">Item</span>
-              <div class="grey-text">Black belt</div>
-              <a href="" class="secondary-content">
-                <i class="material-icons blue-text">email</i>
-              </a>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle blue">person</i>
-              <span class="content">Item</span>
-              <div class="grey-text">Black belt</div>
-              <a href="" class="secondary-content">
-                <i class="material-icons blue-text">email</i>
-              </a>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle blue">person</i>
-              <span class="content">Item</span>
-              <div class="grey-text">Black belt</div>
-              <a href="" class="secondary-content">
-                <i class="material-icons blue-text">email</i>
-              </a>
-            </li>
-          </ul>
+        <div class="col s12 l4 push-l7">
+          <img
+            src="./img/city.jpg"
+            class="responsive-img materialboxed"
+            alt=""
+            srcset=""
+          />
         </div>
-        <div class="col m6">
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://www.clickpb.com.br/media/filer_public/8f/84/8f84a2d6-acf1-48fc-976a-dc0d81b87dda/buchada_de_bode.jpg"
-                alt=""
-              />
-              <a href="" class="halfway-fab btn-floating pink pulse">
-                <i class="material-icons">favorite</i>
-              </a>
-            </div>
-            <div class="card-content">
-              <div class="card-title">Card title mans</div>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit? Lorem,
-                ipsum dolor sit amet consectetur adipisicing elit? Lorem, ipsum
-                dolor sit amet consectetur adipisicing elit? Lorem, ipsum dolor
-                sit amet consectetur adipisicing elit? Lorem, ipsum dolor sit
-                amet consectetur adipisicing elit? Lorem, ipsum dolor sit amet
-                consectetur adipisicing elit?
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="">more details</a>
-              <a href="">View mores</a>
-            </div>
-          </div>
+        <div class="col s12 l6 offset-l2 pull-l5">
+          <h2 class="indigo-text text-darken-4">City</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+            ratione eum fuga reiciendis harum fuga reiciendis harum ratione eum
+            fuga reiciendis harum
+          </p>
         </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l4">
+          <img
+            src="./img/nature.jpg"
+            class="responsive-img materialboxed"
+            alt=""
+            srcset=""
+          />
+        </div>
+        <div class="col s12 l6 offset-l1">
+          <h2 class="indigo-text text-darken-4">Nature</h2>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+            ratione eum fuga reiciendis harum fuga reiciendis harum ratione eum
+            fuga reiciendis harum
+          </p>
+        </div>
+      </div>
+    </section>
 
-        <div class="col box blue z-depth-5">5</div>
+    <div class="parallax-container">
+      <div class="parallax">
+        <img src="./img/street.jpg" alt="" class="responsive-img" />
       </div>
     </div>
-    <div class="row">
-      <div class="col s12 m3 l4 xl2 pink">1</div>
-      <div class="col s12 m3 l4 xl2 blue">2</div>
-      <div class="col pull-m1 s12 m3 l4 xl2 red">3</div>
-      <div class="col s12 m3 l4 xl2 green">4</div>
-      <div class="col s12 m3 l4 xl2 red">5</div>
-      <div class="col s12 m3 l4 xl2 blue">6</div>
+
+    <div class="container section" id="services">
+      <div class="row">
+        <div class="col s12 l4">
+          <h2 class="indigo-text text-darken-4">What's I do</h2>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
+            quod deserunt accusantium! Soluta asperiores dignissimos
+          </p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum
+            quod deserunt accusantium! Soluta asperiores dignissimos
+          </p>
+        </div>
+        <div class="div col s12 l6 offset-2">
+          <ul class="tabs">
+            <li class="tab col s6">
+              <a href="#photography" class="indigo-text text-darken-4"
+                >Photography</a
+              >
+            </li>
+            <li class="tab col s6">
+              <a href="#editing" class="indigo-text text-darken-4">Editing</a>
+            </li>
+          </ul>
+          <div class="col s12" id="photography">
+            <p>photography</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
+              aspernatur mollitia numquam temporibus maxime ut unde illo amet
+              consequatur expedita iste voluptatum aliquam reiciendis eius
+              excepturi. Aliquam praesentium eligendi doloribus.
+            </p>
+          </div>
+          <div class="col s12" id="editing">
+            <p>editing</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque,
+              aspernatur mollitia numquam temporibus maxime ut unde illo amet
+              consequatur expedita iste voluptatum aliquam reiciendis eius
+              excepturi. Aliquam praesentium eligendi doloribus.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <div class="col s12 m3 l4 xl2 pink">1</div>
-      <div class="col s12 m3 l4 xl2 blue">2</div>
-      <div class="col s12 m3 l4 xl2 red">3</div>
-      <div class="col s12 m3 l4 xl2 green">4</div>
-      <div class="col s12 m3 l4 xl2 red">5</div>
-      <div class="col s12 m3 l4 xl2 blue">6</div>
+
+    <div class="parallax-container">
+      <div class="parallax">
+        <img src="./img/stars.jpg" alt="" class="responsive-img" />
+      </div>
     </div>
+
+    <div id="contact" class="section container">
+      <div class="row">
+        <div class="col s12 l5">
+          <h2 class="indigo-text-text-darken-4">Get in touch</h2>
+        </div>
+        <div class="col s12 l5 offset-l2">
+          <form action="">
+            <div class="input-field">
+              <i class="material-icons prefix">email</i>
+              <label for="email">email</label>
+              <input type="email" id="email" />
+            </div>
+            <div class="input-field">
+              <i class="material-icons prefix">message</i>
+              <label for="message">Message</label>
+              <textarea
+                type="email"
+                id="message"
+                class="materialize-textarea"
+              ></textarea>
+            </div>
+            <div class="input-field">
+              <label for="date">Choose a Date</label>
+              <input type="text" id="date" class="datepicker" />
+            </div>
+            <div class="input-field">
+              <p>Services Requireds...</p>
+              <div>
+                <label>
+                  <input type="checkbox" />
+                  <span>Editing</span>
+                </label>
+              </div>
+              <div>
+                <label>
+                  <input type="checkbox" />
+                  <span>Photography</span>
+                </label>
+              </div>
+            </div>
+            <div class="input-field">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
 
     <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var elems = document.querySelectorAll(".sidenav");
-        var instances = M.Sidenav.init(elems);
-        var instances = M.Sidenav.init(elems);
-
-        var modalEl = document.querySelectorAll(".modal");
-        var instances = M.Modal.init(modalEl);
+      $(document).ready(function() {
+        $(".sidenav").sidenav();
+        $(".materialboxed").materialbox();
+        $(".parallax").parallax();
+        $(".tabs").tabs();
+        $(".datepicker").datepicker({ disableWeekends: true });
       });
     </script>
   </body>
