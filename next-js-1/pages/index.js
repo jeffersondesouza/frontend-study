@@ -1,13 +1,3 @@
-import Link from "../src/components/Link";
+import HomeScreen from "../src/screens/HomeScreen";
 
-export default function HomePage() {
-  return (
-    <div>
-      <h1>Alura case!</h1>
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/faq">faq page</Link>
-      </nav>
-    </div>
-  );
-}
+export default HomeScreen;
