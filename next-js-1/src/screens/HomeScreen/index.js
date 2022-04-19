@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Footer from "../../components/patterns/Footer";
 import Link from "../../components/Link";
 import { theme } from "../../theme/theme";
@@ -21,6 +22,9 @@ function SideImage() {
         },
       }}
     >
+      <Head>
+        <title>Alura Campanha</title>
+      </Head>
       <Box
         styleSheet={{
           top: 0,
