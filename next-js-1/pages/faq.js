@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Nav from "../src/components/patterns/Nav";
 
 // getStaticProps: essa função roda apenas no momento do build
 // recomentdada para pegar dados literalmete staticos
@@ -24,7 +25,7 @@ export async function getStaticProps() {
 }
  */
 // Roda a cada a acesso que recebe
-// Não seta os dados no html da do source, ou seja, 
+// Não seta os dados no html da do source, ou seja,
 // se queremos o dado ja preenchido, sempre ir pelo Static PROPS
 export async function getServerSideProps() {
   console.log("######### getServerSideProps #########");
@@ -45,9 +46,10 @@ export async function getServerSideProps() {
 export default function HomePage({ faq }) {
   return (
     <div>
-       <Head>
+      <Head>
         <title>Alura Campanha</title>
       </Head>
+      <Nav />
       <h1>FAQ!</h1>
       <div>
         <ul id="lista-faq">
@@ -63,10 +65,6 @@ export default function HomePage({ faq }) {
           ))}
         </ul>
       </div>
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/faq">faq page</Link>
-      </nav>
     </div>
   );
 }
