@@ -28,7 +28,8 @@ export default function Nav() {
         }}
       >
         <Link href="/">Home</Link>
-        <Link href="/faq">faq page</Link>
+        <Link href="/faq">FAQ</Link>
+        <Link href="/posts">Blog</Link>
       </Box>
     </Box>
   );
