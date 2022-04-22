@@ -30,6 +30,7 @@ export default function Nav() {
         <Link href="/">Home</Link>
         <Link href="/faq">FAQ</Link>
         <Link href="/posts">Blog</Link>
+        <Link href="/login">Login</Link>
       </Box>
     </Box>
   );

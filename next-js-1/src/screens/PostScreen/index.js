@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import { useRouter } from "next/router";
+import Nav from "../../components/patterns/Nav";
 
 export default function PostByIdScreen(props) {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function PostByIdScreen(props) {
         paddingHorizontal: "16px",
       }}
     >
-      {/* Cabeçalho */}
+      <Nav />
       <h2
         style={{
           color: "#F9703E",
