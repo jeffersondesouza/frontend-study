@@ -1,12 +1,10 @@
 import NextLink from "next/link";
-import dados from "../../../dados.json";
 
-export default function HomeScreen() {
+export default function HomeScreen({ posts = [] }) {
   const infos = {
     nome: "Jefferson de Souza",
     githubUser: "jeffersondesouza",
   };
-  const posts = dados.posts;
 
   return (
     <div

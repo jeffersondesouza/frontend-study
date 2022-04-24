@@ -9,8 +9,6 @@ export default function PostByIdScreen(props) {
     date: props?.date,
     content: props?.content,
   };
-  console.log("props: ", props);
-  console.log("router: ", router);
 
   if (router.isFallback) {
     return "Essa página não existe!";
