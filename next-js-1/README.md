@@ -45,3 +45,21 @@ Utilizando o getStaticProps  nós podemos carregar dados dinamicoa(apenas no bui
 
 
 
+## Link prefetch
+- por padão é true,setar sempre como false
+- O ideal é que se estamos em uma pagina e clicamos no link que leva a outra, o next so baixa a  proxima pagina quando acessamos a mesma
+- Porem se estamos em uma pagina e o link q leva a outra está com prefetch, o next por baixo dos panos ja baixa essa pagina. ou seja, se estamos  prevendo q o usuario irá clicar nesse link e ja baixamos a página, assim quando o usuario for para a nova paginaela ja está baixada
+- Por padrão deixar false e so setar para links de páginas importantes, pois assim economisamos request e nao criar um problema de performance por baixar coisas desnecessárias. 
+
+```
+  <NextLink href={"/sobre"} passHref prefetch={true}>
+    <a>sobre</a>
+  <NextLink>
+
+```
+
+## Dynamic import
+- realiza o import sob demanda fazendo ganhar performance
+- nem toda situação pede, mas haverão situações que será pedido
+```const Componnet = dynamic(() => import(‘.../components/Component’))```
+
