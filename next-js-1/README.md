@@ -63,3 +63,13 @@ Utilizando o getStaticProps  nós podemos carregar dados dinamicoa(apenas no bui
 - nem toda situação pede, mas haverão situações que será pedido
 ```const Componnet = dynamic(() => import(‘.../components/Component’))```
 
+## API Routes
+
+- Criar uma folder `api` em `pages`. Os arquivos em api com uma função handler serão capazes de retornar dados de uma "api" para o front
+```
+export default function handle(re1, res) {
+  res.status(200).json({
+    name: 'joao'
+  })
+}
+```
