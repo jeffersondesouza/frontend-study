@@ -4,6 +4,44 @@
 [Next Examples repository](https://github.com/vercel/next.js/tree/canary/examples)
 
 
+## NEXT BUILDS - Glosário Geral
+
+### Static
+```next build && next export```
+- Por padão tudo é Static
+- so vai usar ```next export``` quando TUDO for pré-renderizado, ou seja, tudo estático (uma landage, blog estatico, etc)
+- `getStaticProps` pode ser usado com menos recursos
+- tudo aqui roda em tempo de build
+
+
+## Static Site Generation - SSG
+```next build && next start```
+- `getStaticProps` utilizado, pode ser junto de getStaticPaths para deixar claro quais páginas geraremos 
+- um pouco mias rico, com algumas posssibiidade a mais como o dynamic pages
+- tudo aqui roda em tempo de build
+
+- `Incremental Static Generation`
+  > ao usar o fallback: blocking | true.
+  > com isso, páginas que seria dinamicas sao geradas incrementalmente de forma estática com cache 
+
+- Bom para land pages, páginas de lana,mentode produtos, paginas sem restrições de acesso, páginas publicas de e-commerce 
+- tudo aqui roda em tempo de execução, dando a cesso a cookies e etc
+
+
+**
+Utilizando o start, nós estamos fazendo uma static generation, ou seja, gerando arquivos estáticos em HTML. Esse comando é utilizado quando queremos fazer sites estáticos, podemos usar JAM stack.
+Utilizando o getStaticProps  nós podemos carregar dados dinamicoa(apenas no build) e "injeta-los" no html
+**
+
+
+## Server Side Rendereing - SSR
+- `getServerSideProps`s
+- É gerado em tempo de requisição
+- Componentes com restrições de acesso para bloquear em nível de servidor 
+
+
+
+
 ## getStaticProps, getServerSideProps, getStaticPaths
 
 getStaticPaths
@@ -15,6 +53,11 @@ getStaticProps
 - recomentdada para pegar dados literalmete staticos
 - se os dados forem atualizados na fonte, um novo build deve ser rodado
 - para api dinamica é o getSerSideProps
+- `revalidate`:
+  > irá revalidar a API a cada 10 segundos para ver se chegou algo novo, assim nao fará por requisição
+    // é bom para paginas que fazem MUUUitas requisições, como a pagina de reultado da megasena, pois
+    // como nao hou alteração do back, a pagina sempre mostra o cache e so faz uma nova chamada 
+    // detro do revalidate
 
 
 getServerSideProps:
@@ -23,14 +66,6 @@ getServerSideProps:
 - se queremos o dado ja preenchido, sempre ir pelo Static PROPS
 - Bom ponto para carregar dados do backend
 
-
-## NEXT BUILDS
-
-## Static Site Generation
-```next build && next export```
-
-Utilizando o export, nós estamos fazendo uma static generation, ou seja, gerando arquivos estáticos em HTML. Esse comando é utilizado quando queremos fazer sites estáticos, podemos usar JAM stack.
-Utilizando o getStaticProps  nós podemos carregar dados dinamicoa(apenas no build) e "injeta-los" no html
 
 
 ## Incremental Static Generation
