@@ -28,6 +28,7 @@
 - tudo aqui roda em tempo de execução, dando a cesso a cookies e etc
 
 
+
 **
 Utilizando o start, nós estamos fazendo uma static generation, ou seja, gerando arquivos estáticos em HTML. Esse comando é utilizado quando queremos fazer sites estáticos, podemos usar JAM stack.
 Utilizando o getStaticProps  nós podemos carregar dados dinamicoa(apenas no build) e "injeta-los" no html
