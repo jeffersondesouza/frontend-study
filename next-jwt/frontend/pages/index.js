@@ -1,12 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { authLogin } from "../src/services/auth/authService";
 
 export default function HomeScreen() {
   const router = useRouter();
 
   const [values, setValues] = React.useState({
-    usuario: "joao",
-    senha: "123",
+    usuario: "omariosouto",
+    senha: "safepassword",
   });
 
   function handleChange(event) {
@@ -20,10 +21,20 @@ export default function HomeScreen() {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(values);
-    router.push("/auth-page-ssr");
+
+    try {
+      const res = await authLogin({
+        username: values.usuario,
+        password: values.senha,
+      });
+      router.push("/auth-page-ssr");
+    } catch (error) {
+      console.warn(error);
+      alert(error.message);
+    }
+
     // router.push("/auth-page-static");
   }
 
@@ -34,14 +45,14 @@ export default function HomeScreen() {
         <input
           placeholder="Usuário"
           name="usuario"
-          defaultValue="joao"
+          defaultValue={values.usuario}
           onChange={handleChange}
         />
         <input
           placeholder="Senha"
           name="senha"
           type="password"
-          defaultValue="123"
+          defaultValue={values.senha}
           onChange={handleChange}
         />
         <div>
