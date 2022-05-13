@@ -1,16 +1,16 @@
 import { useRouter } from "next/router";
 import nookies from "nookies";
 import { tokenService } from "../src/services/auth/tokenService";
+import authService from "../src/services/auth/authService";
 
 export async function getServerSideProps(ctx) {
-  console.log("AuthPageSSR:: ", tokenService.get());
-  nookies.get();
-  const accessToken = tokenService.get(ctx);
-  const refreshToken = tokenService.getRefresh(ctx);
+  console.log(ctx);
+  const session = await authService.getSession(ctx);
+  console.log({ session });
+
   return {
     props: {
-      accessToken,
-      refreshToken,
+      session,
     },
   };
 }
@@ -19,7 +19,6 @@ export default function AuthPageSSR(props) {
   const router = useRouter();
 
   const handleLogout = () => {
-    tokenService.delete();
     router.push("/");
   };
 
@@ -28,7 +27,7 @@ export default function AuthPageSSR(props) {
       <h1>Auth page Server Side Renderer</h1>
       <br />
       <div>
-        <pre>{JSON.stringify(props, null, 2)}</pre>
+        <pre>{JSON.stringify(props.session, null, 2)}</pre>
       </div>
       <br />
       <div>

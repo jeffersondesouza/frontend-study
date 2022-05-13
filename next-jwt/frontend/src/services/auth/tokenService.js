@@ -18,14 +18,14 @@ export const tokenService = {
   },
   get(ctx = null) {
     const cookies = nookies.get(ctx);
-    console.log({cookies})
     return cookies[ACCESS_TOKEN_KEY];
   },
   getRefresh(ctx = null) {
     const cookies = nookies.get(ctx);
     return cookies[REFRESH_TOKEN_KEY];
   },
-  delete() {
+  delete(ctx) {
+    nookies.destroy(ctx);
     globalThis?.sessionStorage?.removeItem(ACCESS_TOKEN_KEY);
     globalThis?.sessionStorage?.removeItem(REFRESH_TOKEN_KEY);
   },

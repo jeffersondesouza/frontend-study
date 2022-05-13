@@ -1,7 +1,7 @@
 import { HttpClient } from "../../infra/HttpClient";
 import { tokenService } from "./tokenService";
 
-export async function authLogin({ username, password }) {
+async function login({ username, password }) {
   return HttpClient(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/login`, {
     method: "POST",
     headers: {
@@ -16,3 +16,22 @@ export async function authLogin({ username, password }) {
     return body.data;
   });
 }
+
+async function getSession(ctx) {
+  const token = tokenService.get(ctx);
+  console.log(token);
+  return HttpClient(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/session`, {
+    method: "GET",
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    console.log({res}, res.body)
+    return res;
+  });
+}
+
+export default {
+  login,
+  getSession,
+};

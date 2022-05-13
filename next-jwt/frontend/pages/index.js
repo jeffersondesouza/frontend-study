@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { authLogin } from "../src/services/auth/authService";
+import authService from "../src/services/auth/authService";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function HomeScreen() {
     e.preventDefault();
 
     try {
-      const res = await authLogin({
+      const res = await authService.login({
         username: values.usuario,
         password: values.senha,
       });

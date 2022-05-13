@@ -1,24 +1,31 @@
-import { db } from '../../db';
-import { authService } from '../../src/services/authService';
-import { getTokenFromHeaders } from '../../src/utils/getTokenFromHeaders';
+import { db } from "../../db";
+import { authService } from "../../src/services/authService";
+import { getTokenFromHeaders } from "../../src/utils/getTokenFromHeaders";
 
 const sessionController = {
   async getSession(req, res) {
     const token = getTokenFromHeaders(req);
+    console.log({token})
 
-    if(!token) return res.status(401).json({ error: { status: 401, message: 'You don\'t have credentials' } });
+    if (!token)
+      return res
+        .status(401)
+        .json({
+          error: { status: 401, message: "You don't have credentials" },
+        });
 
     try {
       await authService.validateAccessToken(token);
       const decodedToken = await authService.decodeToken(token);
+      console.log({ decodedToken });
 
       db.users.findOne({ _id: decodedToken.sub }, function (err, user) {
         if (err || user === null) {
           res.status(401).json({
             error: {
               status: 401,
-              message: 'Invalid access token, please login again.',
-            }
+              message: "Invalid access token, please login again.",
+            },
           });
         }
 
@@ -30,14 +37,14 @@ const sessionController = {
             },
             id: decodedToken.sub,
             roles: decodedToken.roles,
-          }
+          },
         });
       });
-
-    } catch(err) {
+    } catch (err) {
       res.status(401).json({
-          status: 401,
-          message: 'Your access token is not valid, so you are not able to get a session.',
+        status: 401,
+        message:
+          "Your access token is not valid, so you are not able to get a session.",
       });
     }
   },
@@ -45,15 +52,15 @@ const sessionController = {
 
 const controllerBy = {
   GET: sessionController.getSession,
-  OPTIONS: (_, res) => res.send('OK'),
-}
+  OPTIONS: (_, res) => res.send("OK"),
+};
 
 /**
  * @swagger
  * /api/session:
  *   get:
  *     summary: Returns a session for one specific user
- *     parameters: 
+ *     parameters:
  *        - in: header
  *          name: x-authorization
  *          schema:
@@ -72,6 +79,6 @@ export default function handle(req, res) {
 
   res.status(404).json({
     status: 404,
-    message: 'Not Found'
+    message: "Not Found",
   });
 }
