@@ -29,8 +29,8 @@ export default function HomeScreen() {
         username: values.usuario,
         password: values.senha,
       });
-      router.push("/auth-page-ssr");
-      // router.push("/auth-page-static");
+      // router.push("/auth-page-ssr");
+      router.push("/auth-page-static");
     } catch (error) {
       console.warn(error);
       alert(error.message);

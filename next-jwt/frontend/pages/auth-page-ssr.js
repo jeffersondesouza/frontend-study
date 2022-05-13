@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
-import withSession from "../src/services/auth/withSession";
-
+import { withSession } from "../src/services/auth/session";
 
 export const getServerSideProps = withSession((ctx) => {
   return {
@@ -31,3 +30,5 @@ export default function AuthPageSSR(props) {
     </div>
   );
 }
+
+

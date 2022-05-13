@@ -109,3 +109,7 @@ export default function handle(re1, res) {
   })
 }
 ```
+
+
+## Http Only Cookies
+- Uma auternativa segura para tratar token

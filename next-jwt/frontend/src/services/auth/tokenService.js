@@ -1,4 +1,4 @@
-import nookies from "nookies";
+import nookies, { destroyCookie } from "nookies";
 
 const ACCESS_TOKEN_KEY = "ACCESS_TOKEN_KEY";
 const REFRESH_TOKEN_KEY = "REFRESH_TOKEN_KEY";
@@ -25,7 +25,8 @@ export const tokenService = {
     return cookies[REFRESH_TOKEN_KEY];
   },
   delete(ctx) {
-    nookies.destroy(ctx);
+    destroyCookie(ctx, ACCESS_TOKEN_KEY);
+    destroyCookie(ctx, REFRESH_TOKEN_KEY);
     globalThis?.sessionStorage?.removeItem(ACCESS_TOKEN_KEY);
     globalThis?.sessionStorage?.removeItem(REFRESH_TOKEN_KEY);
   },

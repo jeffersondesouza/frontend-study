@@ -1,14 +1,12 @@
-import { useRouter } from "next/router";
 import { tokenService } from "../src/services/auth/tokenService";
+import { withSessionHOC } from "../src/services/auth/session";
+import { useDestroySession } from "../src/hooks/useSession";
 
-export default function AuthPageStatic(props) {
-  const router = useRouter();
-
+function AuthPageStatic({ session }) {
+  const logout = useDestroySession();
   const handleLogout = () => {
-    tokenService.delete();
-    router.push("/");
+    logout();
   };
-
   return (
     <div>
       <h1>Auth page Static</h1>
@@ -16,8 +14,10 @@ export default function AuthPageStatic(props) {
         <button onClick={handleLogout}>logout</button>
       </div>
       <div>
-        <pre>{JSON.stringify(props, null, 2)}</pre>
+        <pre>{JSON.stringify({ session }, null, 2)}</pre>
       </div>
     </div>
   );
 }
+
+export default withSessionHOC(AuthPageStatic);
