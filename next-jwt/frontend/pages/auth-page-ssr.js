@@ -1,19 +1,14 @@
 import { useRouter } from "next/router";
-import nookies from "nookies";
-import { tokenService } from "../src/services/auth/tokenService";
-import authService from "../src/services/auth/authService";
+import withSession from "../src/services/auth/withSession";
 
-export async function getServerSideProps(ctx) {
-  console.log(ctx);
-  const session = await authService.getSession(ctx);
-  console.log({ session });
 
+export const getServerSideProps = withSession((ctx) => {
   return {
     props: {
-      session,
+      session: ctx.req.session,
     },
   };
-}
+});
 
 export default function AuthPageSSR(props) {
   const router = useRouter();

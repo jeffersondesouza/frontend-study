@@ -30,12 +30,11 @@ export default function HomeScreen() {
         password: values.senha,
       });
       router.push("/auth-page-ssr");
+      // router.push("/auth-page-static");
     } catch (error) {
       console.warn(error);
       alert(error.message);
     }
-
-    // router.push("/auth-page-static");
   }
 
   return (
@@ -56,7 +55,7 @@ export default function HomeScreen() {
           onChange={handleChange}
         />
         <div>
-          <button>Entrar</button>
+          <button>Entrar SSR</button>
         </div>
       </form>
     </div>

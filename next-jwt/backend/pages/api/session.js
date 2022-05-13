@@ -5,7 +5,6 @@ import { getTokenFromHeaders } from "../../src/utils/getTokenFromHeaders";
 const sessionController = {
   async getSession(req, res) {
     const token = getTokenFromHeaders(req);
-    console.log({token})
 
     if (!token)
       return res
@@ -17,7 +16,6 @@ const sessionController = {
     try {
       await authService.validateAccessToken(token);
       const decodedToken = await authService.decodeToken(token);
-      console.log({ decodedToken });
 
       db.users.findOne({ _id: decodedToken.sub }, function (err, user) {
         if (err || user === null) {
