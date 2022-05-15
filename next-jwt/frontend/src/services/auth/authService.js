@@ -5,6 +5,7 @@ async function login({ username, password }) {
   return HttpClient(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/login`, {
     method: "POST",
     body: { username, password },
+    refresh: true,
   })
     .then(({ ok, body }) => {
       if (!ok) {
@@ -12,16 +13,6 @@ async function login({ username, password }) {
       }
       tokenService.save(body.data.access_token);
       return body;
-    })
-    .then(async ({ data }) => {
-      const { refresh_token } = data;
-      const res = await HttpClient("/api/refresh", {
-        method: "POST",
-        body: {
-          refresh_token,
-        },
-      });
-      console.log(res);
     });
 }
 

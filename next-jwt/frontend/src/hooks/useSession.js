@@ -12,7 +12,6 @@ export default function useSession() {
     authService
       .getSession(null)
       .then((session) => {
-        console.log(session);
         setSession(session);
       })
       .catch((err) => {
