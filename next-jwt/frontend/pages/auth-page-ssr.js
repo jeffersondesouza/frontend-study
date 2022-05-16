@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { withSession } from "../src/services/auth/session";
 
 export const getServerSideProps = withSession((ctx) => {
@@ -10,12 +9,6 @@ export const getServerSideProps = withSession((ctx) => {
 });
 
 export default function AuthPageSSR(props) {
-  const router = useRouter();
-
-  const handleLogout = () => {
-    router.push("/");
-  };
-
   return (
     <div>
       <h1>Auth page Server Side Renderer</h1>
@@ -25,10 +18,16 @@ export default function AuthPageSSR(props) {
       </div>
       <br />
       <div>
-        <button onClick={handleLogout}>logout</button>
+        <div>
+          <a href="/auth-page-ssr">auth-page-ssr</a>
+        </div>
+        <div>
+          <a href="/auth-page-static">auth-page-static</a>
+        </div>
+        <div>
+          <a href="/logout">logout</a>
+        </div>
       </div>
     </div>
   );
 }
-
-
