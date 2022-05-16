@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import authService from "../src/services/auth/authService";
+import Game from "../src/components/Game";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -58,6 +59,11 @@ export default function HomeScreen() {
           <button>Entrar SSR</button>
         </div>
       </form>
+      <div>
+        <br />
+        <Game />
+        <br />
+      </div>
       <div>
         <div>
           <a href="/auth-page-ssr">auth-page-ssr</a>
