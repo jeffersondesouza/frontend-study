@@ -27,6 +27,10 @@ export async function HttpClient(url, options) {
         }
       );
 
+      if (refreshResponse.status !== 200) {
+        throw new Error("tNot Auth");
+      }
+
       const newAccessToken = refreshResponse.body.data.access_token;
 
       tokenService.save(newAccessToken);
