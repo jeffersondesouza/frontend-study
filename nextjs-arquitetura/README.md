@@ -15,3 +15,7 @@
 
 - via yarn, vamos centralizar todas as dependencias do projeto, assim todos os projetos usarãoa mesma versao das libs ocm um unico yarn install
 - No exmplo da SS8 acima, todos os projetos usavam ag-grid, mas em diferentes versões
+
+## Setupd de configs
+- Typescript
+- ESLint

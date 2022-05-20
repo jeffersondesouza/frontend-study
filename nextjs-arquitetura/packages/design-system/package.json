@@ -1,0 +1,9 @@
+{
+  "name": "@jeff/design-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "styled-components": "^6.1.8"
+  }
+}
