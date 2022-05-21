@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.8",
+    "@jeff/utils": "*"
   }
 }

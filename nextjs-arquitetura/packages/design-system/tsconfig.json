@@ -1,0 +1,3 @@
+{
+  "extends": "@jeff/tsconfig-commons/base.json",
+}
