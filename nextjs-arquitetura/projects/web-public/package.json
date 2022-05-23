@@ -7,7 +7,8 @@
     "start": "next start",
     "dev": "next dev",
     "build": "next build",
-    "export": "next export"
+    "export": "next export",
+    "lint": "eslint './**/*.{ts,tsx}'"
   },
   "dependencies": {
     "@jeff/utils": "*",
@@ -19,6 +20,7 @@
     "next-transpile-modules": "9.0.0"
   },
   "devDependencies": {
-    "@jeff/tsconfig-commons": "*"
+    "@jeff/tsconfig-commons": "*",
+    "@jeff/eslint-commons": "*"
   }
 }
