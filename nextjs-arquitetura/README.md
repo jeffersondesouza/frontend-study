@@ -19,3 +19,5 @@
 ## Setupd de configs
 - Typescript
 - ESLint
+
+## Setupd de Tests

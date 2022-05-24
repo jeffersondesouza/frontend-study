@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint './**/*.{ts,tsx}'"
+    "lint": "eslint './**/*.{ts,tsx}'",
+    "test": "jest"
   },
   "devDependencies": {
-    "@jeff/eslint-commons": "*"
+    "@jeff/eslint-commons": "*",
+    "@jeff/test-commons": "*"
   }
 }
